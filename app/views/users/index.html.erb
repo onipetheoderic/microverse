@@ -1,0 +1,54 @@
+<div class="container">
+
+<h1>List of Microverse Team members all over the world</h1>
+<h6>Current Listing Status <span class="badge bg-success"><%=@status %></span></h6>
+
+<div class="btn-group">
+
+<%= link_to "All", users_path(:status=>"all"), class: (@status == "all") ? 'btn btn-primary active' : 'btn btn-primary'%>
+<%= link_to "Active Status", users_path(:status=>"Active"), class: (@status == "Active") ? 'btn btn-primary active' : 'btn btn-primary'%>
+<%= link_to "Inactive Status", users_path(:status=>"Inactive"), class: (@status == "Inactive") ? 'btn btn-primary active' : 'btn btn-primary'%>
+
+</div>
+
+<table id="dtBasicExample" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+  <thead>
+    <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Status</th>
+        <th>Created At</th>
+    </tr>
+  </thead>
+  <tbody>
+   <% @users.each do |user| %>
+    <tr>
+        <td><%= user.id %></td>
+        <td><%= user.first_name %></td>
+        <td><%= user.last_name%></td>
+        <td><%= user.email %></td>
+        <td><%= user.status %></td>       
+        <td><%= user.created_at %></td>
+    </tr>
+       <% end %>
+  </tbody>
+  <tfoot>
+    <tr>
+        <th>ID</th>
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Status</th>
+        <th>Created At</th>
+    </tr>
+  </tfoot>
+</table>
+
+<div class="pagination">
+<%= will_paginate @clients, renderer: WillPaginate::ActionView::BootstrapLinkRenderer %>
+</div>
+</div>
+
+

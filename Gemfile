@@ -15,6 +15,12 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'sidekiq'
 gem 'typhoeus'
 gem 'dotenv'
+gem 'figaro'
+gem 'rest-client'
+gem 'bootstrap', '~> 4.5.0'
+gem 'jquery-rails'
+gem 'will_paginate'
+gem 'will_paginate-bootstrap4'
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
@@ -30,10 +36,12 @@ end
 
 group :test do
   gem 'rspec-rails', '~> 3.8'
-  gem 'factory_bot'
+  gem 'factory_bot_rails'
   gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   gem 'chromedriver-helper'
+  gem 'faker'
+  gem 'shoulda-matchers'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
